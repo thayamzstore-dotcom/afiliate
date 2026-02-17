@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Natural Vision Support for Tired, Strained Eyes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f9f7f4;
+      color: #2c2c2c;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: #1a3a5c;
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.3px;
+    }
+    .topbar span { color: #f0c040; font-weight: bold; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a3a5c 0%, #0f2540 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 50px;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: #f0c040;
+      color: #1a3a5c;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 46px);
+      line-height: 1.25;
+      max-width: 780px;
+      margin: 0 auto 18px;
+      font-weight: normal;
+    }
+    .hero h1 em {
+      color: #f0c040;
+      font-style: normal;
+    }
+    .hero p {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: #cde0f5;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, #e8a020, #f0c040);
+      color: #1a3a5c;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      padding: 18px 44px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(240,192,64,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(240,192,64,0.5);
+    }
+    .hero-sub {
+      margin-top: 14px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #a0c4e8;
+    }
+
+    /* TRUST BADGES */
+    .badges {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 18px 20px;
+    }
+    .badges-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #444;
+      font-weight: 600;
+    }
+    .badge-icon {
+      font-size: 20px;
+    }
+
+    /* STORY SECTION */
+    .story {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 20px;
+    }
+    .story h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      color: #1a3a5c;
+      margin-bottom: 22px;
+      line-height: 1.3;
+    }
+    .story p {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #3a3a3a;
+      margin-bottom: 18px;
+      font-family: Arial, sans-serif;
+    }
+    .story p strong { color: #1a3a5c; }
+    .highlight-box {
+      background: #eef6ff;
+      border-left: 4px solid #1a3a5c;
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 28px 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #1a3a5c;
+      line-height: 1.7;
+    }
+
+    /* SYMPTOMS */
+    .symptoms {
+      background: #fff;
+      padding: 48px 24px;
+      margin: 32px 0;
+    }
+    .symptoms-inner { max-width: 720px; margin: 0 auto; }
+    .symptoms h2 {
+      font-size: clamp(20px, 3.5vw, 28px);
+      color: #1a3a5c;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .symptom-item {
+      background: #f9f7f4;
+      border: 1px solid #e0e8f0;
+      border-radius: 10px;
+      padding: 18px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.4;
+    }
+    .symptom-item .sym-icon { font-size: 22px; flex-shrink: 0; }
+
+    /* BENEFITS */
+    .benefits {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+    .benefits h2 {
+      font-size: clamp(20px, 3.5vw, 28px);
+      color: #1a3a5c;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .benefit-list { list-style: none; }
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .benefit-list li:last-child { border-bottom: none; }
+    .check {
+      background: #1a3a5c;
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background: linear-gradient(135deg, #1a3a5c, #0f2540);
+      padding: 56px 24px;
+      color: white;
+    }
+    .testimonials h2 {
+      text-align: center;
+      font-size: clamp(20px, 3.5vw, 28px);
+      margin-bottom: 36px;
+      color: #f0c040;
+    }
+    .testi-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+    .stars { color: #f0c040; font-size: 18px; margin-bottom: 12px; }
+    .testi-text {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #d0e8ff;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testi-author {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #a0c4e8;
+      font-weight: 600;
+    }
+    .verified {
+      display: inline-block;
+      background: rgba(0,200,100,0.2);
+      color: #5df0a0;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-top: 4px;
+    }
+
+    /* INGREDIENTS */
+    .ingredients {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .ingredients h2 {
+      font-size: clamp(20px, 3.5vw, 28px);
+      color: #1a3a5c;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .ing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .ing-card {
+      background: #fff;
+      border: 1px solid #dce8f5;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .ing-icon { font-size: 32px; margin-bottom: 10px; }
+    .ing-name {
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #1a3a5c;
+      margin-bottom: 6px;
+    }
+    .ing-desc {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* GUARANTEE */
+    .guarantee {
+      background: #fff9ee;
+      border: 2px solid #f0c040;
+      border-radius: 16px;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .guarantee .g-icon { font-size: 52px; margin-bottom: 12px; }
+    .guarantee h3 {
+      font-size: 22px;
+      color: #1a3a5c;
+      margin-bottom: 14px;
+    }
+    .guarantee p {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, #1a3a5c, #0f2540);
+      padding: 60px 24px;
+      text-align: center;
+      color: white;
+    }
+    .cta-section h2 {
+      font-size: clamp(22px, 4vw, 36px);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .cta-section h2 em {
+      color: #f0c040;
+      font-style: normal;
+    }
+    .cta-section p {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      color: #cde0f5;
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #e8a020, #f0c040);
+      color: #1a3a5c;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      padding: 20px 52px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(240,192,64,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(240,192,64,0.55);
+    }
+    .cta-sub {
+      margin-top: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #a0c4e8;
+    }
+    .price-note {
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #cde0f5;
+    }
+    .price-note strong { color: #f0c040; }
+
+    /* FOOTER */
+    footer {
+      background: #0f2540;
+      color: #6a8aaa;
+      text-align: center;
+      padding: 24px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    footer p { max-width: 700px; margin: 0 auto; }
+
+    /* STICKY MOBILE CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(135deg, #e8a020, #f0c040);
+      padding: 14px 20px;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+    }
+    .sticky-cta a {
+      color: #1a3a5c;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: 17px;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    @media (max-width: 600px) {
+      .sticky-cta { display: block; }
+      body { padding-bottom: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  ⚡ <span>LIMITED TIME:</span> Up to $132 OFF + FREE US Shipping on 6-Bottle Orders
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="tag">Eye Health Report 2026</div>
+  <h1>Are Your Eyes Always <em>Tired, Strained</em><br>or Blurry After Screens?</h1>
+  <p>Discover the doctor-formulated supplement that thousands of Americans over 35 are using to support clearer, more comfortable vision — naturally.</p>
+  <a href="YOUR_AFFILIATE_LINK_HERE" class="hero-cta">👁️ See The Solution Now →</a>
+  <p class="hero-sub">🔒 100% Secure | ✅ 90-Day Money-Back Guarantee | 🇺🇸 Made in USA</p>
+</section>
+
+<!-- TRUST BADGES -->
+<div class="badges">
+  <div class="badges-inner">
+    <div class="badge-item"><span class="badge-icon">🏭</span> GMP-Certified Manufacturing</div>
+    <div class="badge-item"><span class="badge-icon">🌿</span> 100% Natural Ingredients</div>
+    <div class="badge-item"><span class="badge-icon">🚫</span> Non-GMO & Gluten Free</div>
+    <div class="badge-item"><span class="badge-icon">👨‍⚕️</span> Doctor Formulated</div>
+    <div class="badge-item"><span class="badge-icon">⭐</span> 274+ Verified Reviews</div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <h2>If You're Over 35 and Spend Hours in Front of Screens, Read This Carefully…</h2>
+  <p>You wake up, check your phone. Then sit at a computer all day. By afternoon, your eyes feel like sandpaper. At night, headlights blur. Sound familiar?</p>
+  <p><strong>You're not imagining it.</strong> In today's screen-heavy world, millions of Americans experience the same thing — and most doctors simply tell them it's "normal aging."</p>
+  <p>But here's what most people don't know: <strong>vision decline isn't just about aging.</strong> It's about a specific type of damage that builds up in your eye cells over time — and it can be addressed with the right nutrients.</p>
+
+  <div class="highlight-box">
+    💡 <strong>New research shows</strong> that a precise combination of 9 natural nutrients — including Astaxanthin, Citicholine, and Ginkgo Biloba — can support the eye's natural defense system, helping to reduce fatigue, improve clarity, and support healthy vision well into old age.
+  </div>
+
+  <p>That's exactly what <strong>Advanced Vision Formula</strong> was built for. Developed by leading health experts with over 100 years of combined experience, this supplement has quietly become one of the most trusted vision support formulas in the United States.</p>
+</section>
+
+<!-- SYMPTOMS -->
+<section class="symptoms">
+  <div class="symptoms-inner">
+    <h2>Do Any of These Sound Familiar?</h2>
+    <div class="symptom-grid">
+      <div class="symptom-item"><span class="sym-icon">😣</span> Eyes feel tired and heavy after work</div>
+      <div class="symptom-item"><span class="sym-icon">🖥️</span> Burning or stinging after screen time</div>
+      <div class="symptom-item"><span class="sym-icon">🌙</span> Difficulty driving at night or with glare</div>
+      <div class="symptom-item"><span class="sym-icon">📖</span> Trouble reading small text or labels</div>
+      <div class="symptom-item"><span class="sym-icon">😵</span> Headaches behind the eyes</div>
+      <div class="symptom-item"><span class="sym-icon">💧</span> Dry, itchy, or irritated eyes</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <h2>What Advanced Vision Formula Supports</h2>
+  <ul class="benefit-list">
+    <li><span class="check">✓</span><span><strong>Reduces eye fatigue and strain</strong> — feel the difference even after long screen sessions</span></li>
+    <li><span class="check">✓</span><span><strong>Supports sharper, clearer vision</strong> — many users report noticing improvement within weeks</span></li>
+    <li><span class="check">✓</span><span><strong>Improves night vision and driving confidence</strong> — less glare, more clarity in low light</span></li>
+    <li><span class="check">✓</span><span><strong>Relieves dry, irritated eyes</strong> — natural lubrication support from the inside out</span></li>
+    <li><span class="check">✓</span><span><strong>Protects against blue light damage</strong> — daily defense for the digital age</span></li>
+    <li><span class="check">✓</span><span><strong>Supports long-term eye health</strong> — not just a quick fix, but lasting protection as you age</span></li>
+  </ul>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>Real People. Real Results.</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I've been using the vision formula for 2 months and already noticed an improvement. My left eye was slightly blurry — it seems to be clearing up. Thank you for a great product!"</p>
+      <div class="testi-author">John P. — Canada<br><span class="verified">✓ Verified Purchase</span></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Since using this product, my vision is better and clearer. My optometrist confirmed the improvement. I definitely recommend this product!"</p>
+      <div class="testi-author">Margarita G. — Fort Mc Coy, FL<br><span class="verified">✓ Verified Purchase</span></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"As a senior still actively working and traveling, I often had dry eyes and eye strain. Since taking Advanced Vision Formula, I really feel a difference. My eyes feel up to the challenge!"</p>
+      <div class="testi-author">Traci B. — Brooklyn, MS<br><span class="verified">✓ Verified Purchase</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients">
+  <h2>9 Powerful Natural Ingredients Inside Every Tablet</h2>
+  <div class="ing-grid">
+    <div class="ing-card">
+      <div class="ing-icon">🦞</div>
+      <div class="ing-name">Astaxanthin</div>
+      <div class="ing-desc">Crosses the blood-retina barrier to protect eye cells from free radical damage</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-icon">🧠</div>
+      <div class="ing-name">Citicoline</div>
+      <div class="ing-desc">Neuroprotective support for the optic nerve — keeps signals clear and strong</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-icon">🌿</div>
+      <div class="ing-name">Ginkgo Biloba</div>
+      <div class="ing-desc">Boosts blood circulation to the eyes, helping deliver nutrients and remove toxins</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-icon">🫐</div>
+      <div class="ing-name">Bilberry Extract</div>
+      <div class="ing-desc">Clinically shown to improve night vision and relieve digital eye fatigue</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-icon">🍇</div>
+      <div class="ing-name">Grape Seed</div>
+      <div class="ing-desc">Rich in antioxidants that protect the eye's protective barrier from oxidative stress</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-icon">☀️</div>
+      <div class="ing-name">Lutein & Zeaxanthin</div>
+      <div class="ing-desc">Filters blue light and supports macular health for sharper central vision</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<div style="padding: 0 24px 20px;">
+  <div class="guarantee">
+    <div class="g-icon">🛡️</div>
+    <h3>90-Day "Feel The Difference" Guarantee</h3>
+    <p>Try Advanced Vision Formula for a full 90 days. If you don't notice a real difference in your eye comfort and clarity — for any reason — simply return the bottles for a <strong>complete refund</strong>, including shipping. No questions asked. No hassle. No fine print.</p>
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>Ready to Give Your Eyes the <em>Support They Deserve?</em></h2>
+  <p>Join thousands of Americans who are already experiencing clearer, more comfortable vision with Advanced Vision Formula.</p>
+  <a href="YOUR_AFFILIATE_LINK_HERE" class="cta-btn">👁️ See Pricing & Order Now →</a>
+  <p class="cta-sub">🔒 Secure Checkout &nbsp;|&nbsp; ✅ 90-Day Guarantee &nbsp;|&nbsp; 🇺🇸 Ships from USA</p>
+  <p class="price-note">Starting at just <strong>$57.95/bottle</strong> with free US shipping on 6-bottle orders</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    * These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Individual results are not guaranteed and may differ from those shown. This page contains affiliate links — we may receive a commission if you purchase through our link at no additional cost to you.<br><br>
+    © 2026 All Rights Reserved. | <a href="#" style="color:#6a8aaa;">Privacy Policy</a> | <a href="#" style="color:#6a8aaa;">Disclaimer</a>
+  </p>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="YOUR_AFFILIATE_LINK_HERE">👁️ Support Your Vision — See Pricing →</a>
+</div>
+
+</body>
+</html>
